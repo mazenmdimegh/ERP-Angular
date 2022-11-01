@@ -6,7 +6,8 @@ import { Location} from '@angular/common';
 @Component({
     moduleId: module.id,
     selector: 'navbar-cmp',
-    templateUrl: 'navbar.component.html'
+    templateUrl: 'navbar.component.html',
+    styleUrls: ['./navbar.component.scss']
 })
 
 export class NavbarComponent implements OnInit{
@@ -37,6 +38,11 @@ export class NavbarComponent implements OnInit{
       var titlee = this.location.prepareExternalUrl(this.location.path());
       if(titlee.charAt(0) === '#'){
           titlee = titlee.slice( 1 );
+      }
+      if(this.location.path().split("/")[1]=="Admin"){
+        return 'Gestion Commerciale'
+      }else if(this.location.path().split("/")[1]=="Finance"){
+        return 'Gestion Financiére'
       }
       for(var item = 0; item < this.listTitles.length; item++){
           if(this.listTitles[item].path === titlee){

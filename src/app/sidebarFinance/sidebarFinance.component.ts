@@ -10,6 +10,9 @@ export interface RouteInfo {
 
 export const ROUTES: RouteInfo[] = [
     // { path: 'dashboard',     title: 'Dashboard',         icon:'nc-bank',       class: '' },
+    { path: 'caisse',          title: 'Caisse',              icon:'nc-money-coins',      class: '' },
+    { path: 'reglements',          title: 'Reglements',              icon:'nc-paper',      class: '' },
+    { path: 'operation',          title: 'Operations',              icon:'nc-book-bookmark',      class: '' },
     { path: 'icons',         title: 'Icons',             icon:'nc-diamond',    class: '' },
     { path: 'maps',          title: 'Maps',              icon:'nc-pin-3',      class: '' },
     // { path: '/notifications', title: 'Notifications',     icon:'nc-bell-55',    class: '' },
@@ -23,6 +26,7 @@ export const ROUTES: RouteInfo[] = [
     moduleId: module.id,
     selector: 'sidebarFinance-cmp',
     templateUrl: 'sidebarFinance.component.html',
+    styleUrls: ['./sidebar.component.scss']
 })
 
 export class SidebarFinanceComponent implements OnInit {

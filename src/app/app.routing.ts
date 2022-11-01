@@ -2,13 +2,16 @@ import { Routes } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { FinanceLayoutComponent } from './layouts/finance-layout/finance-layout.component';
+import { homeComponent } from './pages/home/home.component';
 
 export const AppRoutes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'home',
     pathMatch: 'full',
-  }, {
+  }, 
+  { path: 'home', component: homeComponent },
+  {
     path: 'Admin',
     component: AdminLayoutComponent,
     children: [
