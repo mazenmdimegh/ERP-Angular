@@ -12,19 +12,23 @@ import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { FinanceLayoutComponent } from "./layouts/finance-layout/finance-layout.component";
+import { SidebarFinanceModule } from "./sidebarFinance/sidebarFinance.module";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    FinanceLayoutComponent
   ],
   imports: [
     BrowserAnimationsModule,
     RouterModule.forRoot(AppRoutes,{
-      useHash: true
+      useHash: false
     }),
     SidebarModule,
+    SidebarFinanceModule,
     NavbarModule,
     ToastrModule.forRoot(),
     FooterModule,
