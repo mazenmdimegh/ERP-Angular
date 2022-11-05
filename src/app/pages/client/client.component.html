@@ -1,0 +1,321 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Achat</h4>
+        <button class="button" (click)="add()"> Ajouter </button>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class=" text-primary">
+              <th>
+                Id Client
+              </th>
+              <th>
+                Nom
+              </th>
+              <th>
+                Prénom
+              </th>
+              <th>
+                Adresse
+              </th>
+              <th>
+                Code Postal
+              </th>
+              <th>
+                Num tel
+              </th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  Dakota Rice
+                </td>
+                <td>
+                  54FH456
+                </td>
+                <td>
+                  Dakota Rice
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  5DT
+                </td>
+                <td >
+                  15DT
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Dakota Rice
+                </td>
+                <td>
+                  54FH456
+                </td>
+                <td>
+                  Dakota Rice
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  5DT
+                </td>
+                <td >
+                  15DT
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  Dakota Rice
+                </td>
+                <td>
+                  54FH456
+                </td>
+                <td>
+                  Dakota Rice
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  5DT
+                </td>
+                <td >
+                  15DT
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  Dakota Rice
+                </td>
+                <td>
+                  54FH456
+                </td>
+                <td>
+                  Dakota Rice
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  5DT
+                </td>
+                <td >
+                  15DT
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  Dakota Rice
+                </td>
+                <td>
+                  54FH456
+                </td>
+                <td>
+                  Dakota Rice
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  5DT
+                </td>
+                <td >
+                  15DT
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  Dakota Rice
+                </td>
+                <td>
+                  54FH456
+                </td>
+                <td>
+                  Dakota Rice
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  5DT
+                </td>
+                <td >
+                  15DT
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  Dakota Rice
+                </td>
+                <td>
+                  54FH456
+                </td>
+                <td>
+                  Dakota Rice
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  5DT
+                </td>
+                <td >
+                  15DT
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  Dakota Rice
+                </td>
+                <td>
+                  54FH456
+                </td>
+                <td>
+                  Dakota Rice
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  5DT
+                </td>
+                <td >
+                  15DT
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  Dakota Rice
+                </td>
+                <td>
+                  54FH456
+                </td>
+                <td>
+                  Dakota Rice
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  5DT
+                </td>
+                <td >
+                  15DT
+                </td>
+              </tr>
+
+              
+
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+          <div *ngIf="ajouter" class="popup">
+            <div class="popup-wrapper">
+              <div class="x" (click)="add()">X</div>
+
+
+              <div class="card-body">
+                <h2 class="title">Ajouter Patrimoine</h2>
+                <form name="form" (ngSubmit)="f.form.valid && sub()" #f="ngForm" novalidate>
+
+                  <div class="form-group">
+                    <label for="inputTitre">Titre</label>
+                    <input type="email" class="form-control" type="text" class="form-control" name="titre"
+                      [(ngModel)]="form.titre" required minlength="3" #titre="ngModel" id="inputTitre"
+                      placeholder="Titre">
+                  </div>
+                  <div class="alert-danger" *ngIf="titre.errors && f.submitted">
+                    <div *ngIf="titre.errors.required">Titre is required</div>
+                    <div *ngIf="titre.errors.minlength">
+                      Titre must be at least 3 characters
+                    </div>
+                    <div *ngIf="titre.errors.maxlength">
+                      Titre must be at most 20 characters
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="inputtype">Type *</label>
+                      <select id="inputtype" required name="type" [(ngModel)]="form.type" required #type="ngModel"
+                        class="form-control">
+                        <option value="d" disabled>Sélectionnez le Type</option>
+                        <option value="Louer">Louer</option>
+                        <option value="Achat">Achat</option>
+                        <option value="Autres">Autres</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="inputprix">Prix *</label>
+                      <input type="number" class="form-control" name="prix" [(ngModel)]="form.prix" required
+                        #prix="ngModel" id="inputprix" placeholder="Prix">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="alert-danger" *ngIf="type.errors && f.submitted">
+                      <div *ngIf="type.errors.required">Type is required</div>
+                      <div *ngIf="type.errors.maxlength">
+                        Type must be at 8 digits
+                      </div>
+                    </div>
+                    <div class="alert-danger" *ngIf="prix.errors && f.submitted">
+                      <div *ngIf="prix.errors.required">prix is required</div>
+                      <div *ngIf="prix.errors.min">
+                        prix must be at 8 digits
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputlieu">Lieu</label>
+                    <input type="text" class="form-control" type="text" class="form-control" name="lieu"
+                      [(ngModel)]="form.lieu" required minlength="3" #lieu="ngModel" id="inputlieu" placeholder="Lieu">
+                  </div>
+                  <div class="alert-danger" *ngIf="lieu.errors && f.submitted">
+                    <div *ngIf="lieu.errors.required">lieu is required</div>
+                    <div *ngIf="lieu.errors.minlength">
+                      lieu must be at least 3 characters
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="inputDescription">Description</label>
+                    <textarea rows="4" cols="50" class="form-control" type="text" class="form-control"
+                      name="description" [(ngModel)]="form.description" required minlength="3" #description="ngModel"
+                      id="inputDescription" placeholder="Titre"></textarea>
+                  </div>
+                  <div class="alert-danger" *ngIf="description.errors && f.submitted">
+                    <div *ngIf="description.errors.required">description is required</div>
+                    <div *ngIf="description.errors.minlength">
+                      description must be at least 3 characters
+                    </div>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary">Save</button>
+                  <div class="alert alert-success" *ngIf="isSuccessful">
+                    Your update is successful!
+                  </div>
+                  <div *ngIf="submitted && !isSignUpFailed" style="margin-left: 125px;" class="lds-dual-ring"></div>
+                </form>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
