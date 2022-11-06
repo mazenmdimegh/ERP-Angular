@@ -14,6 +14,7 @@ import { AppRoutes } from './app.routing';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { FinanceLayoutComponent } from "./layouts/finance-layout/finance-layout.component";
 import { SidebarFinanceModule } from "./sidebarFinance/sidebarFinance.module";
+import { CaisseModule } from "./pages/caisse/caisse.module";
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { SidebarFinanceModule } from "./sidebarFinance/sidebarFinance.module";
       useHash: false
     }),
     SidebarModule,
+    CaisseModule,
     SidebarFinanceModule,
     NavbarModule,
     ToastrModule.forRoot(),

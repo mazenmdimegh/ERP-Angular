@@ -8,6 +8,7 @@ import { IconsComponent } from '../../pages/icons/icons.component';
 import { MapsComponent } from '../../pages/maps/maps.component';
 import { NotificationsComponent } from '../../pages/notifications/notifications.component';
 import { UpgradeComponent } from '../../pages/upgrade/upgrade.component';
+import { CaisseComponent } from 'app/pages/caisse/caisse.component';
 
 export const FinanceLayoutRoutes: Routes = [
     // { path: 'dashboard',      component: DashboardComponent },
@@ -16,6 +17,7 @@ export const FinanceLayoutRoutes: Routes = [
     // { path: 'typography',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
+    { path: 'caisse',           component: CaisseComponent },
     // { path: 'notifications',  component: NotificationsComponent },
     // { path: 'upgrade',        component: UpgradeComponent }
 ];
