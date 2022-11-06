@@ -15,6 +15,14 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { FinanceLayoutComponent } from "./layouts/finance-layout/finance-layout.component";
 import { SidebarFinanceModule } from "./sidebarFinance/sidebarFinance.module";
 import { CaisseModule } from "./pages/caisse/caisse.module";
+import { VenteModule } from "./pages/vente/vente.module";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
+import { BrowserModule } from "@angular/platform-browser";
+import { AchatModel } from "./pages/achat/achat.module";
+import { ClientModel } from "./pages/client/client.module";
+import { StockModel } from "./pages/stock/stock.module";
+import { FournisseurModel } from "./pages/fournisseur/fournisseur.module";
 
 
 @NgModule({
@@ -34,7 +42,18 @@ import { CaisseModule } from "./pages/caisse/caisse.module";
     NavbarModule,
     ToastrModule.forRoot(),
     FooterModule,
-    FixedPluginModule
+    FixedPluginModule,
+    VenteModule,
+    AchatModel,
+    ClientModel,
+    StockModel,
+    CommonModule,
+    FormsModule,
+    FournisseurModel,
+    // NgModule,
+    // CommonModule,
+    BrowserModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
