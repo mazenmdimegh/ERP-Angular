@@ -2,7 +2,7 @@
   <div class="col-md-12">
     <div class="card">
       <div class="card-header">
-        <h4 class="card-title">Achat</h4>
+        <h4 class="card-title">Clients</h4>
         <button class="button" (click)="add()"> Ajouter </button>
       </div>
       <div class="card-body">
@@ -29,293 +29,81 @@
               </th>
             </thead>
             <tbody>
-              <tr>
+              <tr *ngFor="let client of Clients">
                 <td>
-                  Dakota Rice
+                  {{client.id}}
                 </td>
                 <td>
-                  54FH456
+                  {{client.nom}}
                 </td>
                 <td>
-                  Dakota Rice
+                  {{client["prénom"]}}
                 </td>
                 <td>
-                  3
+                  {{client.adresse}}
                 </td>
                 <td>
-                  5DT
+                  {{client.codePostal}}
                 </td>
+                
                 <td >
-                  15DT
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Dakota Rice
-                </td>
-                <td>
-                  54FH456
-                </td>
-                <td>
-                  Dakota Rice
-                </td>
-                <td>
-                  3
-                </td>
-                <td>
-                  5DT
-                </td>
-                <td >
-                  15DT
+                  {{client.tel}}
                 </td>
               </tr>
 
-              <tr>
-                <td>
-                  Dakota Rice
-                </td>
-                <td>
-                  54FH456
-                </td>
-                <td>
-                  Dakota Rice
-                </td>
-                <td>
-                  3
-                </td>
-                <td>
-                  5DT
-                </td>
-                <td >
-                  15DT
-                </td>
-              </tr>
 
-              <tr>
-                <td>
-                  Dakota Rice
-                </td>
-                <td>
-                  54FH456
-                </td>
-                <td>
-                  Dakota Rice
-                </td>
-                <td>
-                  3
-                </td>
-                <td>
-                  5DT
-                </td>
-                <td >
-                  15DT
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  Dakota Rice
-                </td>
-                <td>
-                  54FH456
-                </td>
-                <td>
-                  Dakota Rice
-                </td>
-                <td>
-                  3
-                </td>
-                <td>
-                  5DT
-                </td>
-                <td >
-                  15DT
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  Dakota Rice
-                </td>
-                <td>
-                  54FH456
-                </td>
-                <td>
-                  Dakota Rice
-                </td>
-                <td>
-                  3
-                </td>
-                <td>
-                  5DT
-                </td>
-                <td >
-                  15DT
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  Dakota Rice
-                </td>
-                <td>
-                  54FH456
-                </td>
-                <td>
-                  Dakota Rice
-                </td>
-                <td>
-                  3
-                </td>
-                <td>
-                  5DT
-                </td>
-                <td >
-                  15DT
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  Dakota Rice
-                </td>
-                <td>
-                  54FH456
-                </td>
-                <td>
-                  Dakota Rice
-                </td>
-                <td>
-                  3
-                </td>
-                <td>
-                  5DT
-                </td>
-                <td >
-                  15DT
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  Dakota Rice
-                </td>
-                <td>
-                  54FH456
-                </td>
-                <td>
-                  Dakota Rice
-                </td>
-                <td>
-                  3
-                </td>
-                <td>
-                  5DT
-                </td>
-                <td >
-                  15DT
-                </td>
-              </tr>
-
-              
 
           </table>
         </div>
       </div>
     </div>
   </div>
-  
 
 
-          <div *ngIf="ajouter" class="popup">
-            <div class="popup-wrapper">
-              <div class="x" (click)="add()">X</div>
 
+  <div *ngIf="ajouter" class="popup">
+    <div class="popup-wrapper">
+      <div class="x" (click)="add()">X</div>
+      <div class="card-body">
+        <h2 class="title">Ajouter Client</h2>
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
 
-              <div class="card-body">
-                <h2 class="title">Ajouter Patrimoine</h2>
-                <form name="form" (ngSubmit)="f.form.valid && sub()" #f="ngForm" novalidate>
-
-                  <div class="form-group">
-                    <label for="inputTitre">Titre</label>
-                    <input type="email" class="form-control" type="text" class="form-control" name="titre"
-                      [(ngModel)]="form.titre" required minlength="3" #titre="ngModel" id="inputTitre"
-                      placeholder="Titre">
-                  </div>
-                  <div class="alert-danger" *ngIf="titre.errors && f.submitted">
-                    <div *ngIf="titre.errors.required">Titre is required</div>
-                    <div *ngIf="titre.errors.minlength">
-                      Titre must be at least 3 characters
-                    </div>
-                    <div *ngIf="titre.errors.maxlength">
-                      Titre must be at most 20 characters
-                    </div>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group col-md-6">
-                      <label for="inputtype">Type *</label>
-                      <select id="inputtype" required name="type" [(ngModel)]="form.type" required #type="ngModel"
-                        class="form-control">
-                        <option value="d" disabled>Sélectionnez le Type</option>
-                        <option value="Louer">Louer</option>
-                        <option value="Achat">Achat</option>
-                        <option value="Autres">Autres</option>
-                      </select>
-                    </div>
-                    <div class="form-group col-md-6">
-                      <label for="inputprix">Prix *</label>
-                      <input type="number" class="form-control" name="prix" [(ngModel)]="form.prix" required
-                        #prix="ngModel" id="inputprix" placeholder="Prix">
-                    </div>
-                  </div>
-                  <div class="form-row">
-                    <div class="alert-danger" *ngIf="type.errors && f.submitted">
-                      <div *ngIf="type.errors.required">Type is required</div>
-                      <div *ngIf="type.errors.maxlength">
-                        Type must be at 8 digits
-                      </div>
-                    </div>
-                    <div class="alert-danger" *ngIf="prix.errors && f.submitted">
-                      <div *ngIf="prix.errors.required">prix is required</div>
-                      <div *ngIf="prix.errors.min">
-                        prix must be at 8 digits
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputlieu">Lieu</label>
-                    <input type="text" class="form-control" type="text" class="form-control" name="lieu"
-                      [(ngModel)]="form.lieu" required minlength="3" #lieu="ngModel" id="inputlieu" placeholder="Lieu">
-                  </div>
-                  <div class="alert-danger" *ngIf="lieu.errors && f.submitted">
-                    <div *ngIf="lieu.errors.required">lieu is required</div>
-                    <div *ngIf="lieu.errors.minlength">
-                      lieu must be at least 3 characters
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="inputDescription">Description</label>
-                    <textarea rows="4" cols="50" class="form-control" type="text" class="form-control"
-                      name="description" [(ngModel)]="form.description" required minlength="3" #description="ngModel"
-                      id="inputDescription" placeholder="Titre"></textarea>
-                  </div>
-                  <div class="alert-danger" *ngIf="description.errors && f.submitted">
-                    <div *ngIf="description.errors.required">description is required</div>
-                    <div *ngIf="description.errors.minlength">
-                      description must be at least 3 characters
-                    </div>
-                  </div>
-
-                  <button type="submit" class="btn btn-primary">Save</button>
-                  <div class="alert alert-success" *ngIf="isSuccessful">
-                    Your update is successful!
-                  </div>
-                  <div *ngIf="submitted && !isSignUpFailed" style="margin-left: 125px;" class="lds-dual-ring"></div>
-                </form>
-
-              </div>
-
-            </div>
+          <div class="form-group">
+            <label for="inputNom">Nom</label>
+            <input class="form-control" type="text" class="form-control" name="nom" required minlength="3"
+              id="inputNom" formControlName="nom" placeholder="Nom">
           </div>
-        </div>
+          <div class="form-group">
+            <label for="inputPrénom">Prénom</label>
+            <input class="form-control" type="text" class="form-control" name="prénom" required minlength="3"
+              id="inputPrénom" formControlName="prénom" placeholder="Prénom">
+          </div>
+          <div class="form-group">
+            <label for="inputAdresse">Adresse</label>
+            <input class="form-control" type="text" class="form-control" name="adresse" required minlength="3"
+              id="inputAdresse" formControlName="adresse" placeholder="Adresse">
+          </div>
+          <div class="form-group">
+            <label for="inputcodePostal">Code Postal</label>
+            <input class="form-control" type="text" class="form-control" name="codePostal" required minlength="3"
+              id="inputcodePostal" formControlName="codePostal" placeholder="Code Postal">
+          </div>
+          <div class="form-group">
+            <label for="inputtel">N° de Telephone</label>
+            <input class="form-control" type="number" class="form-control" name="tel" required 
+              id="inputtel" formControlName="tel" placeholder="Telephone">
+          </div>
+          <button type="submit" class="btn btn-primary">Ajouter</button>
+
+
+        </form>
+        <svg *ngIf="spinner" class="spinner" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+          <path
+            d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z" />
+        </svg>
+      </div>
+
+    </div>
+  </div>
+</div>

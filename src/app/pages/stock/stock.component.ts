@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import Chart from 'chart.js';
 import { Observable } from 'rxjs';
 
@@ -31,7 +32,21 @@ export class StockComponent implements OnInit {
     prix: null,
     description: null,
   };
-
+  profileForm = new FormGroup({
+    désignation: new FormControl(''),
+    reference: new FormControl(''),
+    prixV: new FormControl(''),
+    quantite: new FormControl(''),
+    prixE: new FormControl(''),
+  });
+  onSubmit() {
+    if(this.profileForm.valid){
+      console.log("valid")
+      console.log(this.profileForm.value)
+    }else{
+      console.log("invalid")
+    } 
+  }
   ngOnInit() {
   }
   add() {

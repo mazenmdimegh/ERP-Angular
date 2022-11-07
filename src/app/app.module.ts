@@ -15,21 +15,28 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { FinanceLayoutComponent } from "./layouts/finance-layout/finance-layout.component";
 import { SidebarFinanceModule } from "./sidebarFinance/sidebarFinance.module";
 import { CaisseModule } from "./pages/caisse/caisse.module";
-import { VenteModule } from "./pages/vente/vente.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { BrowserModule } from "@angular/platform-browser";
-import { AchatModel } from "./pages/achat/achat.module";
-import { ClientModel } from "./pages/client/client.module";
-import { StockModel } from "./pages/stock/stock.module";
-import { FournisseurModel } from "./pages/fournisseur/fournisseur.module";
+// import { AchatModel } from "./pages/achat/achat.module";
+import { AchatComponent } from "./pages/achat/achat.component";
+import { VenteComponent } from "./pages/vente/vente.component";
+import { ClientComponent } from "./pages/client/client.component";
+import { FournisseurComponent } from "./pages/fournisseur/fournisseur.component";
+import { StockComponent } from "./pages/stock/stock.component";
+import { HttpClientModule } from "@angular/common/http";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    FinanceLayoutComponent
+    FinanceLayoutComponent,
+    AchatComponent,
+    VenteComponent,
+    ClientComponent,
+    FournisseurComponent,
+    StockComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -43,17 +50,13 @@ import { FournisseurModel } from "./pages/fournisseur/fournisseur.module";
     ToastrModule.forRoot(),
     FooterModule,
     FixedPluginModule,
-    VenteModule,
-    AchatModel,
-    ClientModel,
-    StockModel,
     CommonModule,
-    FormsModule,
-    FournisseurModel,
+    // FormsModule,
     // NgModule,
     // CommonModule,
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
